@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Main page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+
+    <meta charset="utf-8">
+    <style>
+        /*media end*/
+    </style>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+
+
+
+        <div>
+            <a href="home.html">Home</a>
+            <a href="Postpage.html">PostPage</a>
+            <a href="main.html">Main</a>
+            <a href="premium.html">premium</a>
+            <a href="loginpage.html" class="active">login</a>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="main-container">
+        <section>
+            <div class="main-content-container">
+                <div class="content-container">
+                    <div class="spacer">
+                        <div class="green-text" id="backender">hayyy </div>
+                        </br>
+
+                        <div id="ayyyon">
+                            <div class="searchbox-container">
+                                <input type="text" placeholder="Text" class="searchbox" id="seachbox"
+                                    value="Some text...">
+                                <input type="button" class="searchbox-submit-button" value="Capacity Chart"
+                                    onclick="  var seach = document.getElementById('seachbox').value;    document.getElementById('demo').innerHTML='';
+                                    
+                             layer=0; get_seach('http://alexhaussmann.com/adhaussmann/alex/dat2/datumes.php',seach,'%%',0,parse_and_call,main)">
+                                <div>
+                                    <input type="checkbox" id="namecheck" name="isthename" value="wenameing">
+                                    <label style="background-color: #000000; color: #ffffffff; flex: 1; "
+                                        for="vehicle1">seach this page</label><br>
+                                </div>
+                            </div>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/7VJb2mjsuaE"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            <br>
+                            </br>
+                        </div>
+                    </div>
+
+                    <div class="spacer">
+                        <div class="green-text" id="demo">
+                            yooo
+                        </div>
+
+                        <div id="load more ">
+                            <input class="load-more" type="button" value="load more" onclick="loadmore();">
+                        </div>
+                        </br>
+                    </div>
+
+                    <!-- Script palce hare -->
+
+                    <script type="text/javascript">
+                        main_url =
+                            "http://alexhaussmann.com/adhaussmann/alex/dat2/datumes.php;"
+
+                        var sightuser = "alex2"; var layer_number = 0;
+                        var jqery = new Array(2000);
+
+                        for (var i = 0; i < jqery.length; i++) {
+                            jqery[i] = 0;
+                        }
+
+                        var adding_stuff = 10;
+
+                        function get_post_variable(path, postid, type, memory_loc, func, varible) {
+                            post_responce(path + '?type=' + type + '&postID=' + postid, func, varible, memory_loc)
+                        }
+
+                        function get_comment(path, post_body, post_tital, post_header, sorce_comment, user, sight_hash, memory_loc, func, varible) {
+                            post_responce(
+                                path + '?type=post_comment&post_body=' + post_body + '&post_tital=' + post_tital + '&post_header=' + post_header + '&sorce_comment=' + sorce_comment + '&user=' + user + '&sight_hash=' + sight_hash,
+                                func, varible, memory_loc)
+
+                        }
+
+                        function get_seach(path, seach_item, postID, memory_loc, func, varible) {
+
+                            console.log(path + '?type=posts&seach_item=' + seach_item + '&postID=' + postID)
+
+                            //alert(path+'?type=posts&seach_item='+seach_item+'&postID='+postID)
+                            //name
+
+                            cb = document.getElementById('namecheck');
+                            //alert("Hello! I am an alert box!!"+cb.checked);
+                            valting = path + '?type=posts&seach_item=' + seach_item + '&postID=' + postID;
+                            if (cb.checked) {
+                                valting = path + '?type=posts&seach_item=' + seach_item + '&postID=' + postID + "&name=" + "myname";
+                            };
+
+                            //alert(valting);
+
+
+                            post_responce(
+                                valting,
+                                func, varible, memory_loc)
+
+                        }
+
+                        function post_responce(path, func, varible, memory_loc) {
+
+                            fetch(path).then(
+                                (response) => {
+                                    return response.text();
+                                })
+                                .then((html) => {
+                                    func(html.trim(), varible)
+                                });
+
+                        }
+
+                        function parse_and_call(x, b) {
+                            console.log(x);
+                            //alert(x);
+                            jqery[0] = x.split('?');
+                            jqery[0].push(-1)
+
+                            main();
+                        }
+
+                        function myC(a, b) {
+                            //alert("in my c");
+
+                            a = a.split("(?_?)")
+                            console.log(a)
+
+                            var add_thing = "<img src=\"" + a[3] + "\" class =\"img\" alt=\"\" >" +
+
+                                "<div class=\"child child1\" style=\"background-color: #000000; color: #ffffffff; flex: 1; display: flex; flex-direction:column;   \">" +
+
+
+                                "<div style=\"padding: 20px; background-color: #000030;\" > "
+                                + a[7] +
+
+                                "</div>" + "<br>" + a[0] + "<br>" + a[1] + "<br>" + a[2] +
+                                "<br><br><div></div></div>" +
+
+                                " <div class=\"spacer button-container\" style=\"color: #ffffffff; margin-bottom: 50px \">      <button class = \"button\"  onclick=\"window.location.href='" + a[8] + " ';\"> sight </button>" +
+                                " <button class =  \"button\"  onclick=\"window.location.href='" + a[9] + " ';\"> reply </button><br>" + " </div> <input class='searchbox' type=\"text\" id=\"myText" + b + "\" value=\"Some text...\"> <input class='searchbox-submit-button' type=\"button\" value=\"Capacity Chart\" onclick=\"  var x" + b + " = document.getElementById('myText" + b + "').value; var xxb" + b + " = '" + a[12] + "datumes.php?type=post_comment&post_body='+x" + b + "+ '&user=" + sightuser + "';    post_responce(xxb" + b + ",addpost,'varible',10); \">";
+                            document.getElementById("backender").innerHTML = add_thing;
+                            console.log(add_thing)
+
+                            adding_stuff--;
+                        }
+
+                        function get_H(a, b) {
+                            a = a.split("(?_?)")
+                            console.log(a)
+
+                            var add_thing = "<img src=\"" + a[3] + "\" class =\"img\" alt=\"\" >" +
+
+                                "<div class=\"child child1\" style=\"background-color: #000000; color: #ffffffff; flex: 1; display: flex;flex-direction:column;   \">" +
+
+
+                                "<div style=\"padding: 20px; background-color: #000030;\" > "
+                                + a[7] +
+
+                                "</div>" + "<br>" + a[0] + "<br>" + a[1] + "<br>" + a[2] +
+                                "<br><br><div></div></div>" +
+
+                                " <div class=\"spacer button-container\" style=\"color: #ffffffff; margin-bottom: 50px \">      <button class = \"button\"  onclick=\"window.location.href='" + a[8] + " ';\"> sight </button>" +
+                                " <button class =  \"button\"  onclick=\"window.location.href='" + a[9] + " ';\"> reply </button><br>" + " </div><input class='searchbox' type=\"text\" id=\"myText" + b + "\" value=\"Some text...\"> <input class='searchbox-submit-button' type=\"button\" value=\"Capacity Chart\" onclick=\"  var x" + b + " = document.getElementById('myText" + b + "').value; var xxb" + b + " = '" + a[12] + "datumes.php?name=" + "myname" + "&type=post_comment&post_header='+x" + b + "+ '&user=" + sightuser + "&sorce_comment=" + a[11] + "';     post_responce(xxb" + b + ",addpost,'varible',2); \">";
+
+                            document.getElementById("demo").innerHTML += add_thing;
+                            console.log(add_thing)
+
+                            adding_stuff--;
+                        }
+
+                        function add_stuff(layer) {
+                            var i;
+                            adding_stuff = 10;
+                            if (layer != -1) {
+                                for (i = layer; i < layer + 10; i++) {
+                                    //alert(jqery[0][i]+" " )
+                                    if (jqery[0][i + 1] == -1) {
+                                        layer = -2;
+                                        i = layer + 11;
+                                    }
+                                    else {
+
+                                        get_post_variable(main_url, jqery[0][i], "post_A", i + 1, get_H, i)
+                                    }
+                                }
+
+                                layer_number++;
+                            }
+                        }
+
+                        function main() {
+                            console.log("go go main");
+                            add_stuff(0);
+                        }
+
+                        function addpost(a, b) {
+                            //alert("addding it babbbbbbbby");
+                            //alert(a);
+
+                            get_post_variable(main_url, a, "post_A", "i+1", myC, 9)
+
+                        }
+
+
+                        function loadmore() {
+                            add_stuff(layer_number)
+                        }
+
+                        function submit() {
+                            get_seach(
+                                main_url,
+                                "", "", 0, parse_and_call, main)
+                            //bar(foo);
+                            console.log("I can display " + jqery[2]);
+                        }
+
+                        submit()
+                    </script>
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'a2plcpnl0054' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+
+</html>
